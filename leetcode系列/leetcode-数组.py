@@ -292,3 +292,25 @@ class Solution:
         return None
 
 
+1470. 重新排列数组
+给你一个数组 nums ，数组中有 2n 个元素，按 [x1,x2,...,xn,y1,y2,...,yn] 的格式排列。
+
+请你将数组按 [x1,y1,x2,y2,...,xn,yn] 格式重新排列，返回重排后的数组。
+
+# 把n这个中位数与循环中的i联系起来
+# 由题目可以得知该数组的长度为2n,nums中分为了左右两块，左边是x1,x2...xn, 右边是y1,y2...yn
+# 所以左边的长度为n，右边的长度也为n
+# 用i来遍历n，其中左边的元素为i 右边为n+i
+
+# 时间复杂度O(n)
+# 空间复杂度O(n)
+
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        if len(nums) <= 2: return nums
+        result = []
+        for i in range(n):
+            result.append(nums[i])
+            result.append(nums[n+i])
+        return result
+
